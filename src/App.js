@@ -6,7 +6,7 @@ import './App.css';
 import home from './pages/home'
 import login from './pages/login'
 import signup from './pages/signup'
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import {ThemeProvider as MuiThemeProvider} from '@material-ui/core/styles';
 import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 const theme=createMuiTheme({
   palette:{
@@ -23,6 +23,8 @@ main: "#c51162",
 dark: "#890b44",
 contrastText: "#fff"
 }
+  },typography:{
+    useNextVariants:true
   }
 })
 function App() {
