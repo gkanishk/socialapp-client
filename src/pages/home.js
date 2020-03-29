@@ -8,6 +8,20 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import withStyles from '@material-ui/core/styles/withStyles';
+const styles={
+    card:{
+        display:'flex',
+        marginBottom:20
+    
+    },
+    image:{
+        minWidth:200
+    },
+    content:{
+        padding:25,
+        objectFit:'cover'
+    }}
 class home extends Component{
     state={
         screams:null
@@ -24,15 +38,16 @@ class home extends Component{
     }
     render()
     {
+        const classes=this.props
         let recentScreamsMarkup=this.state.screams 
         ? 
         (this.state.screams.map(scream=><Scream key={scream.screamId} scream={scream}/>))
         :
-        <Card >
+        <Card className={classes.card}>
                 <CardMedia
-                image={Icon}
-                title="Profile image" />
-                <CardContent >
+                image="../images/icon.png"
+                title="Profile image" className={classes.image} />
+                <CardContent className={classes.content}>
                     <Typography variant="h5"  color="primary">userHandle</Typography>
                     <Typography variant="body2" color="textSecondary">12</Typography>
                     <Typography variant="body1">body</Typography>
@@ -52,4 +67,4 @@ class home extends Component{
         )
     };
 }
-export default home;
+export default withStyles(styles)(home);
