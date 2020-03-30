@@ -2,13 +2,13 @@ import React,{Component} from 'react';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
 import Scream from "../components/Scream";
-import Icon from '../images/icon.png'
 //MUI
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
+import AppIcon from '../images/icon.png'
 const styles={
     card:{
         display:'flex',
@@ -45,12 +45,13 @@ class home extends Component{
         :
         <Card className={classes.card}>
                 <CardMedia
-                image="../images/icon.png"
-                title="Profile image" className={classes.image} />
+                image={AppIcon}
+                title="Profile image" 
+                className={classes.image} />
                 <CardContent className={classes.content}>
-                    <Typography variant="h5"  color="primary">userHandle</Typography>
-                    <Typography variant="body2" color="textSecondary">12</Typography>
-                    <Typography variant="body1">body</Typography>
+                    <Typography variant="h5"  color="primary">Loading...</Typography>
+                    <Typography variant="body2" color="textSecondary">Loading...</Typography>
+                    <Typography variant="body1">Loading...</Typography>
 
                 </CardContent>
             </Card>

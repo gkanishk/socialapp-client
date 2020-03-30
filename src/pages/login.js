@@ -44,7 +44,8 @@ Button:{
 customError:
 {
     color:'red',
-    fontSize:'0.8rem'
+    fontSize:'0.8rem',
+    marginTop: 10
 },
 progress:{
     position:'absolute'
@@ -65,14 +66,15 @@ class login extends Component{
         event.preventDefault();
         this.setState({
             loading:true
-        })
+        });
         const userData={
             email:this.state.email,
             password:this.state.password
-        }
+        };
         axios.post('/login',userData)
         .then(res=>{
             console.log(res.data);
+            localStorage.setItem('FBIdToken',`Bearer ${res.data.token}`)
             this.setState({
                 loading:false
             });
@@ -108,10 +110,30 @@ class login extends Component{
                 <form noValidate onSubmit={this.handleSubmit}>
                     
                 <ThemeProvider theme={theme}>
-                <TextField id="email" name="email" label="Email" className={classes.textField}
-                    value={this.state.email}   onChange={this.handleChange} fullWidth color='primary' variant="outlined" helperText={errors.email} error={errors.email?true:false}></TextField>
-                <TextField id="password" type="password" name="password" label="Password" className={classes.textField}
-                    value={this.state.password} onChange={this.handleChange} fullWidth variant="outlined" helperText={errors.password} error={errors.password?true:false} >
+                <TextField 
+                id="email" 
+                name="email" 
+                label="Email"
+                type='email' 
+                className={classes.textField}
+                value={this.state.email}   
+                onChange={this.handleChange} 
+                fullWidth color='primary' 
+                variant="outlined" 
+                helperText={errors.email} 
+                error={errors.email?true:false}>
+                </TextField>
+                <TextField 
+                id="password" 
+                type="password" 
+                name="password" 
+                label="Password" 
+                className={classes.textField}
+                value={this.state.password} 
+                onChange={this.handleChange} 
+                fullWidth variant="outlined" 
+                helperText={errors.password} 
+                error={errors.password?true:false} >
                 </TextField>
                 </ThemeProvider>
                 {errors.general && (
