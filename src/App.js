@@ -11,7 +11,8 @@ import createMuiTheme from '@material-ui/core/styles/createMuiTheme'
 import themeFile from './utils/theme'
 import jwtDecode from 'jwt-decode';
 import AuthRoute from './utils/AuthRoute';
-
+import {Provider} from 'react-redux';
+import store from './redux/store';
 const theme=createMuiTheme(themeFile)
 
 const token=localStorage.FBIdToken;
@@ -31,8 +32,8 @@ else{
 function App() {
   return (
     <MuiThemeProvider theme={theme}>
-      <div className="App">
-      <Router>
+    <Provider store={store}>
+    <Router>
       <Navbar/>
       <div className="container">
       <Switch>
@@ -42,7 +43,7 @@ function App() {
       </Switch>
       </div>
       </Router>
-    </div>
+    </Provider>
     </MuiThemeProvider>
   );
 }
