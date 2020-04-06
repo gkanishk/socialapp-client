@@ -163,7 +163,7 @@ class signup extends Component{
                     </Typography>
                 )} 
                     <Button type="submit" variant="contained" color="primary" label="Submit" className={classes.Button} disabled={loading}>
-                        login
+                        SignUp
                 {loading &&(
                     <CircularProgress size={30} className={classes.progress}/>
                 )}</Button><br/>
