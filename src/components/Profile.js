@@ -63,6 +63,10 @@ const styles = (theme) => ({
     }
 });
 class Profile extends Component{
+    handleImageChange=(event)=>{
+    const image=event.target.files[0];
+    //send to server
+}
     render(){
     const {classes,
         user:{
@@ -73,7 +77,9 @@ class Profile extends Component{
     let ProfileMarkup= !loading?(authenticated?(<Paper className={classes.paper}>
         <div className={classes.profile}>
         <div className="image-wrapper">
-            <img src={imageUrl} alt='image'className="profile-image"/></div>
+            <img src={imageUrl} alt='image'className="profile-image"/>
+            <input type='file' id='imageInput' onChange={this.handleImageChange}/>
+            </div>
             <hr/>
             <div className="profile-details">
             <Mlink component={Link} to={`/user/${handle}`} color="primary" variant='h5'>
