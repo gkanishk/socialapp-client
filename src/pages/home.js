@@ -10,6 +10,10 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import withStyles from '@material-ui/core/styles/withStyles';
 import AppIcon from '../images/icon.png'
+import PropTypes from 'prop-types';
+
+import {connect} from 'react-redux';
+import {getScreams} from '../redux/action/dataAction'
 const styles={
     card:{
         display:'flex',
@@ -24,25 +28,27 @@ const styles={
         objectFit:'cover'
     }}
 class home extends Component{
-    state={
-        screams:null
-    }
+    // state={
+    //     screams:null
+    // }
     componentDidMount(){
-        axios.get('/screams')
-        .then(res=>{
+        // axios.get('/screams')
+        // .then(res=>{
             
-            this.setState({
-                screams:res.data 
-            })
-            console.log(this.state.screams)
-        }).catch(err=>console.error(err));
+        //     this.setState({
+        //         screams:res.data 
+        //     })
+        //     console.log(this.state.screams)
+        // }).catch(err=>console.error(err));
+        this.props.getScreams();
     }
     render()
-    {
+    {   
+        const {screams,loading}=this.props.data
         const classes=this.props
-        let recentScreamsMarkup=this.state.screams 
+        let recentScreamsMarkup=!loading 
         ? 
-        (this.state.screams.map(scream=><Scream key={scream.screamId} scream={scream}/>))
+        (screams.map(scream=><Scream key={scream.screamId} scream={scream}/>))
         :
         <Card className={classes.card}>
                 <CardMedia
@@ -69,4 +75,12 @@ class home extends Component{
         )
     };
 }
-export default withStyles(styles)(home);
+
+home.propTypes={
+    getStreams:PropTypes.func.isRequired,
+    data:PropTypes.object.isRequired
+}
+const mapStateToProps=state=>({
+    data:state.data
+})
+export default connect(mapStateToProps,{getScreams})(withStyles(styles)(home));
