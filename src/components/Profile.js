@@ -21,6 +21,7 @@ import KeyboardReturn from "@material-ui/icons/KeyboardReturn";
 
 import Typography from '@material-ui/core/Typography';
 import {logoutUser,uploadImage} from '../redux/action/userAction'; 
+import EditDetails from "../components/EditDetails";
 const styles = (theme) => ({
     paper: {
     padding: 20
@@ -137,6 +138,7 @@ handleLogout=()=>{
                     <KeyboardReturn color='primary'/>
                 </IconButton>
             </Tooltip>
+            <EditDetails/>
         </div>  
     </Paper>):(
         <Paper className={classes.paper}>
