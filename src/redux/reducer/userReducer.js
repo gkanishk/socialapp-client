@@ -1,9 +1,10 @@
-import {SET_USER,SET_ERRORS,CLEAR_ERRORS,LOADING_UI,SET_AUTHENTICATED as SetAuthenticated,SET_UNAUTHENTICATED as SetUnauthenticated} from '../types';
+import {SET_USER,SET_ERRORS,CLEAR_ERRORS,LOADING_UI,SET_AUTHENTICATED as SetAuthenticated,SET_UNAUTHENTICATED as SetUnauthenticated,LIKE_SCREAM,UNLIKE_SCREAM} from '../types';
 const initialState={
     authenticated:false,
     credentials:{},
     likes:[],
-    notifications:[]
+    notifications:[],
+    
 };
 export default function(state=initialState,action){
     switch(action.type){
@@ -20,7 +21,25 @@ export default function(state=initialState,action){
                 authenticated:true,
                 ...action.payload
             };
-            default:
+        case LIKE_SCREAM:
+            return {
+                ...state,
+                likes:[
+                    ...state.likes,
+                    {
+                        userHandle:state.credentials.handle,
+                        screamId:action.payload.screamId
+                    }
+                ]
+            }
+        case UNLIKE_SCREAM:
+            return {
+                ...state,
+                likes:state.likes.filter(
+                    (like)=>like.screamId!==action.payload.screamId
+                    )
+            }
+        default:
                 return state;
         }
 }

@@ -14,7 +14,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 // import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import EditIcon from '@material-ui/icons/Edit'
-
+import MyButton from '../utils/MyButton'
 const styles=(theme)=>({
     // ...theme
     button:{
@@ -67,11 +67,9 @@ class EditDetails extends Component{
         const {classes}=this.props;
         return (
             <Fragment>
-                <Tooltip title="Edit details" placement="top">
-                    <IconButton onClick={this.handleOpen} className={classes.button}>
-                    <EditIcon color="primary"/> 
-                    </IconButton>
-                </Tooltip>
+            <MyButton tip="Edit user details" onClick={this.handleOpen} btnClassName={classes.button}>
+                <EditIcon color='primary'/>
+            </MyButton>
                 <Dialog 
                 open={this.state.open}
                 onClose={this.handleClose}
@@ -91,7 +89,8 @@ class EditDetails extends Component{
                             value={this.state.bio}
                             onChange={this.handleChange}
                             fullWidth
-                            />
+                            variant="outlined"
+                            /><hr/>
                             <TextField
                             name="website"
                             type="text"
@@ -101,7 +100,9 @@ class EditDetails extends Component{
                             value={this.state.website}
                             onChange={this.handleChange}
                             fullWidth
+                            variant="outlined"
                             />
+                            <hr/>
                             <TextField
                             name="location"
                             type="text"
@@ -111,6 +112,7 @@ class EditDetails extends Component{
                             value={this.state.location}
                             onChange={this.handleChange}
                             fullWidth
+                            variant="outlined"
                             />
 
                             
