@@ -16,7 +16,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import EditIcon from '@material-ui/icons/Edit'
 import MyButton from '../utils/MyButton'
 const styles=(theme)=>({
-    // ...theme
+    // ...theme,
     button:{
         float:"right"
     }

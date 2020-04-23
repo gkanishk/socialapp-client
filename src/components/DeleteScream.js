@@ -21,6 +21,7 @@ const styles={
 
 }
 class DeleteScream extends Component {
+    
     state={
         open:false
     };
@@ -31,7 +32,7 @@ class DeleteScream extends Component {
         this.setState({open:false})
     }
     deleteScream=()=>{
-        this.props.deleteScream(this.props.screamId)
+        this.props.deleteScream(this.props.screamId);
         this.setState({open:false});
     }
     render() {
@@ -56,7 +57,7 @@ class DeleteScream extends Component {
                         <Button onClick={this.handleClose} color="primary">
                             Cancel
                         </Button>
-                        <Button onCLick={this.deleteScream} color='secondary'>
+                        <Button onClick={this.deleteScream} color='secondary'>
                             Delete
                         </Button>
                     </DialogActions>

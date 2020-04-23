@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 import {Link} from 'react-router-dom'
 import dayjs from 'dayjs'
 import MyButton from '../utils/MyButton';
-import DeleteScream from '../components/DeleteScream'
+import DeleteScream from './DeleteScream'
 //MUI Stuffffsss
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
