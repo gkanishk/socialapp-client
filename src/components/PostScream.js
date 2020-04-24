@@ -16,7 +16,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import EditIcon from '@material-ui/icons/Edit'
 import MyButton from '../utils/MyButton'
-import {postScream} from '../redux/action/dataAction'
+import {postScream,clearErrors} from '../redux/action/dataAction'
 
 const styles={
     submitButton:{
@@ -44,8 +44,8 @@ class PostScream extends Component{
             });
         }
         if(!nextProps.UI.errors&&!nextProps.UI.loading){
-            this.setState({body:''});
-            this.handleClose();
+            this.setState({body:'',open:false,errors:{}});
+            // this.handleClose();
         }
 
     }
@@ -109,10 +109,11 @@ class PostScream extends Component{
 }
 PostScream.propTypes={
     postScream:PropTypes.func.isRequired,
+    clearErrors:PropTypes.func.isRequired,
     UI:PropTypes.object.isRequired
 };
 const mapStateToProps=(state)=>({
     UI:state.UI
 })
 
-export default connect(mapStateToProps,{postScream})(withStyles(styles)(PostScream))
+export default connect(mapStateToProps,{postScream,clearErrors})(withStyles(styles)(PostScream))
