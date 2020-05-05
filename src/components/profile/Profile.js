@@ -89,7 +89,8 @@ handleLogout=()=>{
         loading,authenticated
     }}
     =this.props;
-    let ProfileMarkup= !loading?(authenticated?(<Paper className={classes.paper}>
+    let ProfileMarkup= !loading?(authenticated?(
+    <Paper className={classes.paper}>
         <div className={classes.profile}>
         <div className="image-wrapper">
             <img src={imageUrl} alt='image'className="profile-image"/>
@@ -105,10 +106,10 @@ handleLogout=()=>{
             
             <hr/>
             <div className="profile-details">
-            <Mlink component={Link} to={`/user/${handle}`} color="primary" variant='h5'>
+            <Mlink component={Link} to={`/users/${handle}`} color="primary" variant='h5'>
                 @{handle}
             </Mlink><hr/>
-            {bio && (<Tyography variant="body2">{bio}</Tyography>)}
+            {bio && (<Typography variant="body2">{bio}</Typography>)}
             {location && 
             (
             <Fragment>
