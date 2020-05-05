@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {connect} from "react-redux";
 import {Link} from 'react-router-dom'
 import dayjs from 'dayjs'
-import MyButton from '../utils/MyButton';
+import MyButton from '../../utils/MyButton';
 import DeleteScream from './DeleteScream'
 import ScreamDialog from './ScreamDialog';
 import LikeButton from './LikeButton';
@@ -15,9 +15,6 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
 import relativeTime from 'dayjs/plugin/relativeTime'
-// import {getScreams} from '../redux/actions/dataActions';
-
-import {likeScream,unlikeScream} from '../redux/action/dataAction';
 
 import ChatIcon from '@material-ui/icons/Chat'
 
@@ -58,7 +55,7 @@ class Scream extends Component{
                 userHandle,
                 screamId,
                 likeCount,
-                commentCount
+                commentCount,comments
             },
             user:{
                 authenticated,
@@ -68,8 +65,9 @@ class Scream extends Component{
         // const {classes,scream:{body,userImage,userHandle,screamId,likeCount,commentCount}} =this.props;
         //console.log(body);
         // const scream=this.props.scream
-        console.log(userHandle)
-        console.log(handle);
+        console.log(comments)
+        // console.log(handle);
+        // console.log(comments)
         const deleteButton = authenticated && userHandle === handle ?
         (
             <DeleteScream screamId={screamId}/>
@@ -86,7 +84,7 @@ class Scream extends Component{
                     <Typography variant="body1">{body}</Typography>
                     <LikeButton screamId={screamId}/>
                     <span>{likeCount}</span>
-                    <MyButton tip="commens">
+                    <MyButton tip="comments">
                         <ChatIcon color="primary"/>
                     </MyButton>
                     <span>{commentCount}</span>

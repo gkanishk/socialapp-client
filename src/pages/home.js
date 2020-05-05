@@ -1,8 +1,8 @@
 import React,{Component} from 'react';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
-import Scream from "../components/Scream";
-import Profile from '../components/Profile';
+import Scream from "../components/scream/Scream";
+import Profile from '../components/profile/Profile';
 //MUI
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -44,11 +44,11 @@ class home extends Component{
     }
     render()
     {   
-        const {screams,loading}=this.props.data
+        const {screams,loading}=this.props.data;
         const classes=this.props
         let recentScreamsMarkup=!loading 
         ? 
-        (screams.map(scream=><Scream key={scream.screamId} scream={scream}/>))
+        (screams.map((scream)=><Scream key={scream.screamId} scream={scream}/>))
         :
         <Card className={classes.card}>
                 <CardMedia

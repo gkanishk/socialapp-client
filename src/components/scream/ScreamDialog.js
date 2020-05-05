@@ -1,9 +1,11 @@
 import React,{Component,Fragment} from 'react';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
-import MyButton from '../utils/MyButton'
+import MyButton from '../../utils/MyButton'
 import dayjs from "dayjs";
 import {Link} from 'react-router-dom';
+import Comments from "./Comments";
+import CommentForm from "./CommentForm";
 //MUI mojo jojo
 
 import CloseIcon from '@material-ui/icons/Close';
@@ -19,7 +21,7 @@ import LikeButton from './LikeButton';
 import ChatIcon from '@material-ui/icons/Chat'
 
 import {connect} from 'react-redux'
-import {getScream} from '../redux/action/dataAction'
+import {getScream,clearErrors} from '../../redux/action/dataAction'
 
 const styles={
     invisibleSeperator:{
@@ -61,11 +63,21 @@ class ScreamDialog extends Component{
     }
     handleClose=()=>{
         this.setState({open:false});
+        this.props.clearErrors();
     }
     render(){
-        const {classes,scream:{screamId,body,createdAt,likeCount,commentCount,userImage,userHandle},UI:{loading}}
+        const {classes,
+            scream:{screamId,
+                body,
+                createdAt,
+                likeCount,
+                commentCount,
+                userImage,
+                userHandle,
+                comments},UI:{loading}}
         =this.props;
-        const dialogMarkup=!loading?(
+        console.log(this.props);
+        const dialogMarkup=loading?(
         <div className={classes.spinnerDiv}>
             <CircularProgress size={200} />
         </div>
@@ -94,8 +106,12 @@ class ScreamDialog extends Component{
                     <MyButton tip="commens">
                         <ChatIcon color="primary"/>
                     </MyButton>
-                    <span>{commentCount}</span>
+                    <span>{commentCount} comments</span>
                 </Grid>
+                <hr className={classes.visibleSeparator}/>
+                {/* console.log(comments); */}
+                <CommentForm screamId={screamId} />
+                <Comments comments={comments}/>
             </Grid>
         );
         return(
@@ -119,6 +135,7 @@ class ScreamDialog extends Component{
 }
 
 ScreamDialog.propTypes={
+    clearErrors: PropTypes.func.isRequired,
     getScream:PropTypes.func.isRequired,
     screamId:PropTypes.string.isRequired,
     userHandle:PropTypes.string.isRequired,
@@ -131,6 +148,6 @@ const mapStateToProps=state=>({
     UI:state.UI
 })
 const mapActionsToProps={
-    getScream
+    getScream,clearErrors
 };
 export default connect(mapStateToProps,mapActionsToProps)(withStyles(styles)(ScreamDialog));
