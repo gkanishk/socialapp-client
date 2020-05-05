@@ -1,7 +1,7 @@
 import React,{Component, Fragment} from 'react';
 import withStyles from '@material-ui/core/styles/withStyles';
 import PropTypes from 'prop-types';
-import MyButton from '../utils/MyButton';
+import MyButton from '../../utils/MyButton';
 
 //mui stttuuff
 import Button from '@material-ui/core/Button';
@@ -11,7 +11,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DeleteOutline from '@material-ui/icons/DeleteOutline'
 
 import {connect} from 'react-redux';
-import {deleteScream}from '../redux/action/dataAction';
+import {deleteScream}from '../../redux/action/dataAction';
 const styles={
     deleteButton:{
         position:'absolute',
@@ -21,6 +21,7 @@ const styles={
 
 }
 class DeleteScream extends Component {
+    
     state={
         open:false
     };
@@ -31,7 +32,7 @@ class DeleteScream extends Component {
         this.setState({open:false})
     }
     deleteScream=()=>{
-        this.props.deleteScream(this.props.screamId)
+        this.props.deleteScream(this.props.screamId);
         this.setState({open:false});
     }
     render() {
@@ -56,7 +57,7 @@ class DeleteScream extends Component {
                         <Button onClick={this.handleClose} color="primary">
                             Cancel
                         </Button>
-                        <Button onCLick={this.deleteScream} color='secondary'>
+                        <Button onClick={this.deleteScream} color='secondary'>
                             Delete
                         </Button>
                     </DialogActions>

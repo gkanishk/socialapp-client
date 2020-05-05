@@ -17,9 +17,9 @@ import EditIcon from '@material-ui/icons/Edit'
 import KeyboardReturn from "@material-ui/icons/KeyboardReturn";
 
 import Typography from '@material-ui/core/Typography';
-import {logoutUser,uploadImage} from '../redux/action/userAction'; 
-import EditDetails from "../components/EditDetails";
-import MyButton from '../utils/MyButton';
+import {logoutUser,uploadImage} from '../../redux/action/userAction'; 
+import EditDetails from "./EditDetails";
+import MyButton from '../../utils/MyButton';
 const styles = (theme) => ({
     paper: {
     padding: 20

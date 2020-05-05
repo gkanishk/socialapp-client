@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 
 import {connect} from 'react-redux';
-import {editUserDetails} from '../redux/action/userAction' 
+import {editUserDetails} from '../../redux/action/userAction' 
 import { Tooltip, IconButton, TextField } from '@material-ui/core';
 
 //Dialog
@@ -14,9 +14,9 @@ import DialogContent from '@material-ui/core/DialogContent';
 // import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import EditIcon from '@material-ui/icons/Edit'
-import MyButton from '../utils/MyButton'
+import MyButton from '../../utils/MyButton'
 const styles=(theme)=>({
-    // ...theme
+    // ...theme,
     button:{
         float:"right"
     }
