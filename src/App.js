@@ -18,7 +18,9 @@ import store from './redux/store';
 import {SET_AUTHENTICATED}from './redux/types';
 import {logoutUser,getUserData} from './redux/action/userAction';
 import axios from 'axios';
-const theme=createMuiTheme(themeFile)
+const theme=createMuiTheme(themeFile);
+
+axios.defaults.baseURL='https://asia-east2-socialapp-72822.cloudfunctions.net/api';
 
 const token=localStorage.FBIdToken;
 
