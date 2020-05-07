@@ -4,11 +4,11 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import Paper from '@material-ui/core/Paper';
 import {Link} from 'react-router-dom';
 import dayjs from "dayjs";
+import ProfileSkeleton from '../../utils/ProfileSkeleton';
 //MUI stuff
 import Button from '@material-ui/core/Button'
 import Mlink from '@material-ui/core/Link';
 import {connect} from 'react-redux';
-import Tyography from '@material-ui/core/Typography';
 //Icon
 import LocationOn from '@material-ui/icons/LocationOn'
 import LinkIcon from '@material-ui/icons/Link'
@@ -93,7 +93,7 @@ handleLogout=()=>{
     <Paper className={classes.paper}>
         <div className={classes.profile}>
         <div className="image-wrapper">
-            <img src={imageUrl} alt='image'className="profile-image"/>
+            <img src={imageUrl} alt="profile" className="profile-image"/>
             <input type='file' 
             id='imageInput' 
             onChange={this.handleImageChange}
@@ -149,13 +149,8 @@ handleLogout=()=>{
                 </Button>
             </div>
         </Paper>
-    )):(<p>loading</p>)
-    return (
-        
-            ProfileMarkup 
-        
-
-    )
+    )):<ProfileSkeleton/>
+    return ProfileMarkup;
 }}
 
 const mapStateToProps=(state)=>({

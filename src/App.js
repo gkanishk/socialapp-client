@@ -21,7 +21,6 @@ import axios from 'axios';
 const theme=createMuiTheme(themeFile)
 
 const token=localStorage.FBIdToken;
-let authenticated;
 
 if(token){
 const decodedToken=jwtDecode(token);
@@ -48,6 +47,7 @@ function App() {
         <AuthRoute exact path="/login" component={login} />
         <AuthRoute exact path="/signup" component={signup}/>
         <Route exact path="/users/:handle" component={user}/>
+        <Route exact path="/users/:handle/scream/:screamId" component={user}/>
       </Switch>
       </div>
       </Router>
