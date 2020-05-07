@@ -8,12 +8,18 @@ import Grid from '@material-ui/core/Grid';
 import {connect} from 'react-redux';
 import {getUserData} from "../redux/action/dataAction";
 
+import ScreamSkeleton from '../utils/ScreamSkeleton';
+
 export class user extends Component {
     state={
-        profile:null
+        profile:null,
+        screamIdParam:null,
     };
     componentDidMount(){
         const handle = this.props.match.params.handle;
+        const screamId=this.props.match.params.screamId;
+        if(screamId)
+        this.setState({screamIdParam:screamId});
         this.props.getUserData(handle);
         axios.get(`/user/${handle}`)
         .then(res=>{
@@ -25,13 +31,25 @@ export class user extends Component {
     }
     render() {
         const {screams,loading}=this.props.data;
+        const {screamIdParam}=this.state;
         const screamMarkup=loading?(
-            <p>Loading data.</p>
-        ):(screams===null?(
+            <ScreamSkeleton/>
+        ):(screams===null?
+            (
             <p>No screams from this user</p>
-        ):(
-            screams.map(scream=><Scream key={scream.screamId} scream={scream}/>)
-        ));
+        ):
+        !screamIdParam?
+        (
+        screams.map(scream=><Scream key={scream.screamId} scream={scream}/>)
+        ):
+        (screams.map(scream=>
+            {
+        if(scream.screamId!==screamIdParam)
+        return <Scream key={scream.screamId} scream={scream}/>
+        else
+        return <Scream key={scream.screamId} scream={scream} openDialog/>
+            
+        })));
         
         return (
             <Grid container spacing={16}>

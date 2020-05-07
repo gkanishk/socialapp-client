@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 
 import {connect} from 'react-redux';
-import {editUserDetails} from '../../redux/action/userAction' 
-import { Tooltip, IconButton, TextField } from '@material-ui/core';
+import {TextField } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add'
 import CloseIcon from '@material-ui/icons/Close';
 //Dialog
@@ -14,9 +13,8 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import DialogContent from '@material-ui/core/DialogContent';
 // import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import EditIcon from '@material-ui/icons/Edit'
-import MyButton from '../../utils/MyButton'
-import {postScream,clearErrors} from '../../redux/action/dataAction'
+import MyButton from '../../utils/MyButton';
+import {postScream,clearErrors} from '../../redux/action/dataAction';
 
 const styles={
     submitButton:{

@@ -1,4 +1,4 @@
-import React, { Component,Fragment } from 'react'
+import React, {Fragment } from 'react'
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import dayjs from 'dayjs';
@@ -60,7 +60,7 @@ return (
     <Paper className={classes.paper}>
         <div className={classes.profile}>
         <div className="image-wrapper">
-            <img src={imageUrl} alt='image'className="profile-image"/>
+            <img src={imageUrl} alt='profile'className="profile-image"/>
             </div>
             <hr/>
             <div className="profile-details">

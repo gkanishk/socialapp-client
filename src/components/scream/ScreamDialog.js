@@ -9,11 +9,9 @@ import CommentForm from "./CommentForm";
 //MUI mojo jojo
 
 import CloseIcon from '@material-ui/icons/Close';
-import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogTitle from '@material-ui/core/DialogTitle';
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import UnfoldMore from "@material-ui/icons/UnfoldMore"
@@ -55,15 +53,30 @@ const styles={
 }
 class ScreamDialog extends Component{
     state={
-        open:false
+        open:false,
+        oldPath:'',
+        newPath:''
+    };
+    componentDidMount(){
+        if(this.props.openDialog)
+        {
+            this.handleOpen();
+        }
     }
     handleOpen=()=>{
-        this.setState({open:true});
+        let oldPath=window.location.pathname;
+        const {userHandle,screamId}=this.props;
+        const newPath=`/users/${userHandle}/scream/${screamId}`;
+
+        window.history.pushState(null,null,newPath);
+        if(oldPath===newPath) oldPath=`/users/${userHandle}`;
+        this.setState({open:true,oldPath,newPath});
         this.props.getScream(this.props.screamId);
     }
     handleClose=()=>{
         this.setState({open:false});
         this.props.clearErrors();
+        window.history.pushState(null,null,this.state.oldPath);
     }
     render(){
         const {classes,

@@ -126,6 +126,15 @@ export const getUserData = (userHandle) => (dispatch) => {
         });
         });
     };
+// export const markNotificationsRead=(notificationIds)=>dispatch=>{
+//     axios.post('/notifications',notificationIds)
+//     .then(res=>{
+//         dispatch({
+//             type:MARK_NOTIFICATIONS_READ
+//         })
+//     })
+//     .catch(err=>console.log(err));
+// }
 
 export const clearErrors=()=>dispatch=>{
     dispatch({type:CLEAR_ERRORS})
