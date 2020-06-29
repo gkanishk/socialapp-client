@@ -14,7 +14,6 @@ const styles={
     card:{
         display:'flex',
         marginBottom:20
-    
     },
     image:{
         minWidth:200
@@ -30,7 +29,7 @@ class home extends Component{
     render()
     {   
         const {screams,loading}=this.props.data;
-        const classes=this.props
+        // const classes=this.props
         let recentScreamsMarkup=!loading 
         ? 
         (screams.map((scream)=><Scream key={scream.screamId} scream={scream}/>))

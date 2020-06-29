@@ -40,7 +40,7 @@ class CommentForm extends Component {
                     <TextField
                     name="body"
                     type="text"
-                    label="Comment on scream"
+                    label="Comment kiya jaye"
                     error={errors.comment?true:false}
                     helperText={errors.comment}
                     value={this.state.body}
@@ -49,8 +49,8 @@ class CommentForm extends Component {
                     className={classes.textField}
                     />
                     <Button type="submit"
-                    varient="contained"color="primary"
-                    className={classes.button}>
+                    varient="contained" color="primary"
+                    >
                         Submit
                     </Button>
                     </form> 

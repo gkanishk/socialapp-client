@@ -56,7 +56,7 @@ class Scream extends Component{
                 userHandle,
                 screamId,
                 likeCount,
-                commentCount,comments
+                commentCount
             },
             user:{
                 authenticated,
@@ -66,9 +66,9 @@ class Scream extends Component{
         // const {classes,scream:{body,userImage,userHandle,screamId,likeCount,commentCount}} =this.props;
         //console.log(body);
         // const scream=this.props.scream
-        console.log(comments)
-        // console.log(handle);
         // console.log(comments)
+        // console.log(handle);
+        console.log(commentCount)
         const deleteButton = authenticated && userHandle === handle ?
         (
             <DeleteScream screamId={screamId}/>
