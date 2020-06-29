@@ -32,6 +32,7 @@ export class user extends Component {
     render() {
         const {screams,loading}=this.props.data;
         const {screamIdParam}=this.state;
+        // const classes=this.props
         const screamMarkup=loading?(
             <ScreamSkeleton/>
         ):(screams===null?
@@ -52,7 +53,7 @@ export class user extends Component {
         })));
         
         return (
-            <Grid container spacing={16}>
+            <Grid container spacing={10}>
                 <Grid item sm={8} xs={12}>
                     {screamMarkup}
                 </Grid>

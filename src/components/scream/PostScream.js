@@ -18,7 +18,8 @@ import {postScream,clearErrors} from '../../redux/action/dataAction';
 
 const styles={
     submitButton:{
-        position:'relative'
+        position:'relative',
+        margin:"20px"
     },
     progressSpinner:{
         position:"relative"
@@ -65,7 +66,7 @@ class PostScream extends Component{
         const {classes,UI:{loading}}=this.props;
         return (
             <Fragment>
-                <MyButton onClick={this.handleOpen} tip="Post a scream!">
+                <MyButton onClick={this.handleOpen} tip="Post a message!">
                     <AddIcon color="secondary"/>
                 </MyButton>
                 <Dialog 
@@ -73,13 +74,13 @@ class PostScream extends Component{
                     <MyButton tip="Close" onClick={this.handleClose} tipClassName={classes.closeButton}>
                         <CloseIcon color="secondary"/>
                     </MyButton>
-                    <DialogTitle>Post a scream!!</DialogTitle>
+                    <DialogTitle>Post a message!!</DialogTitle>
                     <DialogContent>
                         <form onSubmit={this.handleSubmit}>
                             <TextField
                             name="body"
                             type="text"
-                            label="SCREAM"
+                            label="Message Likha Jaye"
                             multiline
                             row="3"
                             placeholder="Scream at your aaageh"
