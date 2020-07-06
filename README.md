@@ -6,3 +6,23 @@
 </p>
 
 ### A social app which can be used for posting updates, comment, and interact for comman chit-chat!
+
+## Stacks used:
+- React
+- Redux
+- Material UI
+- Express
+- Firebase
+
+## Installation:
+
+```
+git clone https://github.com/gkanishk/social-client
+cd social-client
+yarn
+yarn start
+
+```
+Will load at:
+
+`localhost:3000`
