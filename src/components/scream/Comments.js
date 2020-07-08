@@ -28,7 +28,6 @@ const styles = (theme) => ({
                 marginBottom:20
             }
 });
-// const styles=()=>{};
 
 class Comments extends Component {
     render() {
