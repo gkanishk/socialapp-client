@@ -10,7 +10,7 @@ export const loginUser =(userData,history)=>(dispatch)=>
             setAuthorizationHeader(res.data.token);    
             dispatch(getUserData());
             dispatch({type:CLEAR_ERRORS});
-            // history.push('/');
+            history.push('/');
         })
         .catch((err)=>
             {
@@ -43,7 +43,7 @@ export const signupUser =(newUerData,history)=>(dispatch)=>
 }
 
 export const logoutUser=()=>(dispatch)=>{
-    localStorage.removeItem('FBToken');
+    localStorage.removeItem('FBIdToken');
     delete axios.defaults.headers.common['Authorization']
     dispatch({type:SET_UNAUTHENTICATED});
 }
