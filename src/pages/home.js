@@ -32,7 +32,9 @@ class home extends Component{
         // const classes=this.props
         let recentScreamsMarkup=!loading 
         ? 
-        (screams.map((scream)=><Scream key={scream.screamId} scream={scream}/>))
+        (screams.map((scream)=>
+        <Scream key={scream.screamId} scream={scream}/>
+    ))
         :
         <ScreamSkeleton/>
         return (
