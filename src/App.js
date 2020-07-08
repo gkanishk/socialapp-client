@@ -24,18 +24,18 @@ axios.defaults.baseURL='https://asia-east2-socialapp-72822.cloudfunctions.net/ap
 
 const token=localStorage.FBIdToken;
 
-if(token){
-const decodedToken=jwtDecode(token);
-if(decodedToken.exp*1000 < Date.now()){
-  window.location.href='/login'
-  store.dispatch(logoutUser())
-}
-else{
-  store.dispatch({type:SET_AUTHENTICATED});
-  axios.defaults.headers.common['Authorization']=token;
-  store.dispatch(getUserData());
-}
-}
+// if(token){
+// const decodedToken=jwtDecode(token);
+// if(decodedToken.exp*1000 < Date.now()){
+//   // store.dispatch(logoutUser());
+//   window.location.href='/login'
+// }
+// else{
+//   store.dispatch({type:SET_AUTHENTICATED});
+//   axios.defaults.headers.common['Authorization']=token;
+//   store.dispatch(getUserData());
+// }
+// }
 
 function App() {
   return (
