@@ -9,6 +9,7 @@ import {connect} from 'react-redux';
 import {getUserData} from "../redux/action/dataAction";
 
 import ScreamSkeleton from '../utils/ScreamSkeleton';
+import ProfileSkeleton from '../utils/ProfileSkeleton'
 
 export class user extends Component {
     state={
@@ -59,8 +60,9 @@ export class user extends Component {
                 </Grid>
                 <Grid item sm={4} xs={12}>
                     {this.state.profile===null?(
-                        <p>Loading..</p>
+                        <ProfileSkeleton/>
                     ):(<StaticProfile profile={this.state.profile} />)}
+                    {/* <ProfileSkeleton/> */}
                 </Grid>
             </Grid>
         )
