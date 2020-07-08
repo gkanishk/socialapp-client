@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {getScreams} from '../redux/action/dataAction';
 import ScreamSkeleton from '../utils/ScreamSkeleton';
-
+import ProfileSkeleton from '../utils/ProfileSkeleton';
 const styles={
     card:{
         display:'flex',
@@ -41,7 +41,7 @@ class home extends Component{
                 {recentScreamsMarkup}
             </Grid>
             <Grid item sm={4} xs={12}>
-                <Profile />
+                {!loading?<Profile />:<ProfileSkeleton/>}
             </Grid>
         </Grid>
     
