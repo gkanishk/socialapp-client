@@ -89,7 +89,6 @@ class ScreamDialog extends Component{
                 userHandle,
                 comments},UI:{loading}}
         =this.props;
-        console.log(this.props);
         const dialogMarkup=loading?(
         <div className={classes.spinnerDiv}>
             <CircularProgress size={200} />
@@ -122,7 +121,6 @@ class ScreamDialog extends Component{
                     <span>{commentCount} comments</span>
                 </Grid>
                 <hr className={classes.visibleSeparator}/>
-                {/* console.log(comments); */}
                 <CommentForm screamId={screamId} />
                 <Comments comments={comments}/>
             </Grid>
