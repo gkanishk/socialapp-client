@@ -5,7 +5,7 @@
      <a href="https://app.netlify.com/sites/gkanishk-social/deploys" align="center"><img src="https://api.netlify.com/api/v1/badges/382a6f81-7b62-49ed-844f-eefd1382c435/deploy-status" alt="Netlify Status"></a></h1>
 </p>
 
-### A social app which can be used for posting updates, comment, and interact for comman chit-chat!
+### A social app which can be used for posting updates, comment, and interact for common chit-chat!
 
 ## Stacks used:
 - React
