@@ -86,7 +86,7 @@ class EditDetails extends Component{
                             label="Bio"
                             multiline
                             rows="3"
-                            placeholder="A short bio apne bare mein"
+                            placeholder="A short bio about yourself"
                             className={classes.textField}
                             value={this.state.bio}
                             onChange={this.handleChange}

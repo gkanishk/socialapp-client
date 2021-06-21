@@ -80,10 +80,10 @@ class PostScream extends Component{
                             <TextField
                             name="body"
                             type="text"
-                            label="Message Likha Jaye"
+                            label="Message"
                             multiline
                             row="3"
-                            placeholder="Scream at your aaageh"
+                            placeholder="Enter your message"
                             error={errors.body?true:false}
                             className={classes.TextField}
                             onChange={this.handleChange}
