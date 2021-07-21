@@ -138,7 +138,7 @@ handleLogout=()=>{
     </Paper>):(
         <Paper className={classes.paper}>
             <Typography variant="body2" align='center'>
-                No profile found,please login again
+                No profile found,please login to view profile
             </Typography>
             <div className={classes.buttons}>
                 <Button variant="contained" color="primary" component={Link} to="/login">

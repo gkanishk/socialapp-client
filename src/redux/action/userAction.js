@@ -1,8 +1,11 @@
-import {SET_USER,SET_ERRORS,CLEAR_ERRORS,LOADING_UI,SET_UNAUTHENTICATED, LOADING_USER,MARK_NOTIFICATIONS_READ} from '../types';
+import {SET_USER,SET_ERRORS,CLEAR_ERRORS,LOADING_UI,SET_UNAUTHENTICATED, LOADING_USER,MARK_NOTIFICATIONS_READ, LOADING_UI_TEST} from '../types';
 import axios from 'axios';
 
-export const loginUser =(userData,history)=>(dispatch)=>
+export const loginUser =(userData,history,testLogin)=>(dispatch)=>
 {
+    if(testLogin)
+    dispatch({type: LOADING_UI_TEST})
+    else
     dispatch({type:LOADING_UI});
     axios
         .post('/login',userData)

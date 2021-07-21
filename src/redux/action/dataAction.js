@@ -9,6 +9,7 @@ import {SET_SCREAMS,
     SET_ERRORS,
     SET_SCREAM,
     STOP_LOADING_UI,
+    STOP_LOADING_UI_TEST,
     SUBMIT_COMMENT
 } from '../types';
 import axios from 'axios';
@@ -39,6 +40,7 @@ export const getScream =(screamId)=>dispatch=>{
             payload:res.data
         });
         dispatch({type:STOP_LOADING_UI})
+        dispatch({type:STOP_LOADING_UI_TEST});
     })
     .catch(err=>console.log(err));
 }

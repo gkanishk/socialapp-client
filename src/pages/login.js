@@ -42,7 +42,8 @@ textField:{
 },
 Button:{
     marginTop:10,
-    position:'relative'
+    position:'relative',
+    margin: "10px"
 },
 customError:
 {
@@ -71,14 +72,11 @@ class login extends Component{
     }
     handleSubmit=(event)=>{
         event.preventDefault();
-        // this.setState({
-        //     loading:true
-        // });
         const userData={
             email:this.state.email,
             password:this.state.password
         };
-        this.props.loginUser(userData,this.props.history);
+        this.props.loginUser(userData,this.props.history,false);
         
     }
     handleChange=(event)=>{
@@ -87,10 +85,18 @@ class login extends Component{
         });
         
     }
+    handleSubmitTest=(event)=>{
+        event.preventDefault();
+        const userData={
+            email:"kanishkgupta11@yahoo.com",
+            password:"123456"
+        };
+        this.props.loginUser(userData,this.props.history,true);
+    }
 
     render()
     {
-        const {classes,UI:{loading}}=this.props;
+        const {classes,UI:{loading, loadingTest}}=this.props;
         const {errors}=this.state;
         return (
         <Grid container className={classes.form}>
@@ -138,7 +144,13 @@ class login extends Component{
                         login
                 {loading &&(
                     <CircularProgress size={30} className={classes.progress}/>
-                )}</Button><br/>
+                )}</Button>
+                <Button variant="contained" color="primary" className={classes.Button} disabled={loadingTest} onClick={this.handleSubmitTest}>
+                        Login as Guest
+                {loadingTest &&(
+                    <CircularProgress size={30} className={classes.progress}/>
+                )}</Button>
+                <br/>
                     <small>
                         Dont have an account ? sign up <Link to="/signup">here</Link>
                     </small>

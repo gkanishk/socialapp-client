@@ -1,7 +1,8 @@
-import {SET_ERRORS,CLEAR_ERRORS,LOADING_UI,STOP_LOADING_UI} from '../types';
+import {SET_ERRORS,CLEAR_ERRORS,LOADING_UI,STOP_LOADING_UI,LOADING_UI_TEST, STOP_LOADING_UI_TEST} from '../types';
 
 const initialState={
     loading:false,
+    loadingTest: false,
     errors:null
 };
 export default function(state=initialState,action){
@@ -10,18 +11,30 @@ export default function(state=initialState,action){
             return {
                 ...state,
                 loading:false,
+                loadingTest:false,
                 errors:action.payload
             };
             case CLEAR_ERRORS:
                 return{
                     ...state,
                     loading:false,
+                    loadingTest: false,
                     errors:null
                 }
             case LOADING_UI:
                 return {
                     ...state,
                     loading:true
+                }
+            case LOADING_UI_TEST:
+                return {
+                    ...state,
+                    loadingTest:true
+                }
+            case STOP_LOADING_UI_TEST:
+                return {
+                    ...state,
+                    loadingTest:false
                 }
             case STOP_LOADING_UI:
                 return {
