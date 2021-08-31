@@ -4,7 +4,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 
 import {connect} from 'react-redux';
 import {TextField } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add'
+import PostAdd from '@material-ui/icons/PostAdd'
 import CloseIcon from '@material-ui/icons/Close';
 //Dialog
 import Button from '@material-ui/core/Button';
@@ -67,7 +67,7 @@ class PostScream extends Component{
         return (
             <Fragment>
                 <MyButton onClick={this.handleOpen} tip="Post a message!">
-                    <AddIcon color="secondary"/>
+                    <PostAdd color="secondary"/>
                 </MyButton>
                 <Dialog 
                 open={this.state.open} onClose={this.handleClose} fullWidth="sm">
