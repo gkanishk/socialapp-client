@@ -14,7 +14,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import DialogContent from '@material-ui/core/DialogContent';
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
-import UnfoldMore from "@material-ui/icons/UnfoldMore"
+import QuestionAnswer from "@material-ui/icons/QuestionAnswer"
 import LikeButton from './LikeButton';
 import ChatIcon from '@material-ui/icons/Chat'
 
@@ -127,8 +127,8 @@ class ScreamDialog extends Component{
         );
         return(
             <Fragment>
-                <MyButton onClick={this.handleOpen} tip="Expand scream" tipClassName={classes.expandButton}>
-                    <UnfoldMore color="primary"/>
+                <MyButton onClick={this.handleOpen} tip="Expand Comments" tipClassName={classes.expandButton}>
+                    <QuestionAnswer color="primary"/>
                 </MyButton>
                 <Dialog 
                 open={this.state.open} onClose={this.handleClose} fullWidth="sm">

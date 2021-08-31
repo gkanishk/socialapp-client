@@ -13,7 +13,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 // import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import EditIcon from '@material-ui/icons/Edit'
+import PersonAdd from '@material-ui/icons/PersonAdd';
 import MyButton from '../../utils/MyButton'
 const styles=(theme)=>({
     // ...theme,
@@ -70,7 +70,7 @@ class EditDetails extends Component{
         return (
             <Fragment>
             <MyButton tip="Edit user details" onClick={this.handleOpen} btnClassName={classes.button}>
-                <EditIcon color='primary'/>
+                <PersonAdd color='primary'/>
             </MyButton>
                 <Dialog 
                 open={this.state.open}

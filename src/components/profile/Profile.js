@@ -13,8 +13,8 @@ import {connect} from 'react-redux';
 import LocationOn from '@material-ui/icons/LocationOn'
 import LinkIcon from '@material-ui/icons/Link'
 import CalendarToday from '@material-ui/icons/CalendarToday'
-import EditIcon from '@material-ui/icons/Edit'
-import KeyboardReturn from "@material-ui/icons/KeyboardReturn";
+import AddAPhoto from '@material-ui/icons/AddAPhoto';
+import ExitToApp from "@material-ui/icons/ExitToApp";
 
 import Typography from '@material-ui/core/Typography';
 import {logoutUser,uploadImage} from '../../redux/action/userAction'; 
@@ -99,7 +99,7 @@ handleLogout=()=>{
             onChange={this.handleImageChange}
             hidden="hidden"/>
             <MyButton tip="Edit profile picture" onClick={this.handleEditPicture} btnClassName="button">
-                <EditIcon color='primary'/>
+                <AddAPhoto color='primary'/>
             </MyButton>
             
             </div>
@@ -131,7 +131,7 @@ handleLogout=()=>{
             <span>Joined {dayjs(createdAt).format('MMM YYYY')}</span>
             </div>
             <MyButton tip="Logout" onClick={this.handleLogout} btnClassName="button">
-                <KeyboardReturn color='primary'/>
+                <ExitToApp color='primary'/>
             </MyButton>
             <EditDetails/>
         </div>  
